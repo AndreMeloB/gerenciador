@@ -1,7 +1,7 @@
 package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
-import java.io.Writer;
+import java.io.PrintWriter;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,12 +14,12 @@ public class OiMundoServlet extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		Writer out = resp.getWriter();
-		out.write("<html>");
-		out.write("<body>");
-		out.write("Olá mundo, esta Servlet está funcionando.");
-		out.write("</body>");
-		out.write("</html>");
+		PrintWriter out = resp.getWriter();
+		out.println("<html>");
+		out.println("<body>");
+		out.println("Olá mundo, esta Servlet está funcionando.");
+		out.println("</body>");
+		out.println("</html>");
 	}
 
 }
