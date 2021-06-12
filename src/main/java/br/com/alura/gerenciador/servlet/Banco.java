@@ -1,6 +1,7 @@
 package br.com.alura.gerenciador.servlet;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Banco {
@@ -9,12 +10,14 @@ public class Banco {
 	static {
 		Empresa empresa = new Empresa();
 		empresa.setNome("Alura");
+		empresa.setDataAbertura(new Date());
 		Empresa empresa2 = new Empresa();
 		empresa2.setNome("Caelum");
+		empresa2.setDataAbertura(new Date());
 		Banco.lista.add(empresa);
 		Banco.lista.add(empresa2);
 	}
-	
+
 	public void adiciona(Empresa empresa) {
 		Banco.lista.add(empresa);
 	}
