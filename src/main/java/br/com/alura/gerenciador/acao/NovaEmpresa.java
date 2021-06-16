@@ -1,24 +1,18 @@
-package br.com.alura.gerenciador.servlet;
+package br.com.alura.gerenciador.acao;
 
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import jakarta.servlet.RequestDispatcher;
+import br.com.alura.gerenciador.modelo.Banco;
+import br.com.alura.gerenciador.modelo.Empresa;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/novaEmpresa")
-public class NovaEmpresaServlet extends HttpServlet {
-
-	private static final long serialVersionUID = 1L;
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+public class NovaEmpresa {
+	public void executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nomeEmpresa = req.getParameter("nome");
 		String paramDataEmpresa = req.getParameter("data");
 
@@ -38,10 +32,6 @@ public class NovaEmpresaServlet extends HttpServlet {
 
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
-		resp.sendRedirect("listaEmpresas");
-
-//		RequestDispatcher rd = req.getRequestDispatcher("listaEmpresas");
-//		req.setAttribute("empresa", empresa.getNome());
-//		rd.forward(req, resp);
+		resp.sendRedirect("entrada?acao=ListaEmpresas");
 	}
 }
