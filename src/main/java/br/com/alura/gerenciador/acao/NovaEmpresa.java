@@ -11,8 +11,10 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class NovaEmpresa {
-	public void executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+public class NovaEmpresa implements Acao {
+	
+	@Override
+	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nomeEmpresa = req.getParameter("nome");
 		String paramDataEmpresa = req.getParameter("data");
 
@@ -32,6 +34,6 @@ public class NovaEmpresa {
 
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
-		resp.sendRedirect("entrada?acao=ListaEmpresas");
+		return "redirect:entrada?acao=ListaEmpresas";
 	}
 }
