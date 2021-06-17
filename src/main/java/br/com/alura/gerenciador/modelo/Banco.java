@@ -60,4 +60,13 @@ public class Banco {
 		}
 		return null;
 	}
+
+	public Usuario existeUsuario(String login, String senha) {
+		for (Usuario u : listaUsuarios) {
+			if (u.ehIgual(login, senha)) {
+				return u;
+			}
+		}
+		return null;
+	}
 }

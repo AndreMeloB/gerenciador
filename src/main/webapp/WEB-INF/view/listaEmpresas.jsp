@@ -5,6 +5,8 @@
 
 <html>
 	<body>
+		<c:import url="logout-parcial.jsp" />
+		Usuário autenticado: ${usuarioLogado.login } <br/>
 		<c:if test="${not empty empresa }">
 			A empresa ${empresa} foi criada com sucesso! <br/>
 		</c:if>
